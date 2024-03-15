@@ -21,5 +21,7 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
+          # Providing REPOSITORY so we don't need to clone the repo
+          REPOSITORY: ${{ github.event.pull_request.head.repo.full_name }}
         run: |
-          gh pr review $PR_NUMBER --body "@dependabot merge" --approve
+          gh pr review $PR_NUMBER --body "@dependabot merge" --approve --repo $REPOSITORY
