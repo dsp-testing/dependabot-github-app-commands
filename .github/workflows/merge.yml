@@ -24,4 +24,4 @@ jobs:
           # Providing REPOSITORY so we don't need to clone the repo
           REPOSITORY: ${{ github.event.pull_request.head.repo.full_name }}
         run: |
-          gh pr review $PR_NUMBER --body "@dependabot merge" --approve --repo $REPOSITORY
+          gh pr review $PR_NUMBER --body "@dependabot merge" --repo $REPOSITORY
